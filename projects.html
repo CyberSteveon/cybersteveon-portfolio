@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav>
+    <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resume.html">Professional Résumé</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <button id="theme-toggle">Dark Mode</button>
+</nav>
+
+<hr>
+<header>
+    <h1>Projects</h1>
+    <p class="divider-line">A collection of software development, automation, and security projects that demonstrate my
+        technical skills and continued growth as a software engineer.</p>
+</header>
+<main>
+<section>
+    <h2 class="divider-line">SecurelyScoped <em>(In Development)</em></h2>
+
+    <p>
+        SecurelyScoped is a local-first desktop application written in Rust and
+        Tauri. It is being developed to identify configuration and security
+        issues on a system. The long-term goal is to provide fast, lightweight
+        analysis without requiring cloud services or external dependencies.
+    </p>
+
+    <h3>Current Progress</h3>
+
+    <p>
+        The project is currently focused on building the underlying scanning
+        engine and application architecture. The desktop application launches
+        successfully, while the graphical interface is still under development.
+        The filesystem traversal engine is functional and serves as the
+        foundation for future analysis features.
+    </p>
+
+    <ul>
+        <li>Recursive filesystem traversal</li>
+        <li>Rust scanning engine</li>
+        <li>Tauri desktop application structure</li>
+        <li>Modular project architecture</li>
+    </ul>
+
+    <h3>Development Approach</h3>
+
+    <p>
+        During development, portions of the scanning engine were separated into
+        a command-line prototype (Config Checker RS). This allowed rapid
+        iteration on directory traversal and rule validation before integrating
+        the functionality into the desktop application.
+    </p>
+
+    <h3>Next Steps</h3>
+
+    <ul>
+        <li>Expand the rule engine</li>
+        <li>Add configuration validation</li>
+        <li>Implement security analysis</li>
+        <li>Connect the scanning engine to the GUI</li>
+    </ul>
+
+    <p>
+        <strong>GitHub:</strong>
+        <a href="https://github.com/CyberSteveon/SecurelyScoped" rel="noopener noreferrer"
+           target="_blank">github.com/CyberSteveon/SecurelyScoped</a>
+    </p>
+
+</section>
+
+<section>
+<h2 class="divider-line">Windows Privacy &amp; Setup Automation</h2>
+
+<p>
+    This project started as a way to simplify setting up my own Windows
+    systems. After reinstalling Windows multiple times and repeatedly applying
+    the same settings, I wanted a faster, more consistent way to configure a
+    new machine exactly how I like it. Over time, the project evolved into a
+    PowerShell automation tool that performs common setup tasks and applies
+    privacy-focused configuration changes.
+</p>
+
+<h3>Overview</h3>
+
+<p>
+    Rather than manually working through dozens of settings after every fresh
+    installation, the script automates the process and provides a repeatable
+    baseline that I can continue to improve as my workflow evolves.
+</p>
+
+<h3>Key Features</h3>
+
+<ul>
+    <li>Automates common Windows setup tasks</li>
+    <li>Applies privacy and system configuration settings</li>
+    <li>Reduces repetitive post-installation work</li>
+    <li>Designed to grow as new automation opportunities are identified</li>
+</ul>
+
+<h3>What I Learned</h3>
+
+<p>
+    Developing this project strengthened my PowerShell scripting skills while
+    reinforcing the value of automation. It also changed how I approach
+    repetitive tasks—if I find myself performing the same steps more than once,
+    I begin thinking about how they can be automated instead.
+</p>
+
+<strong>GitHub:</strong>
+
+<a href="https://github.com/CyberSteveon/windows-privacy-setup" target="_blank" rel="noopener
+noreferrer">github.com/CyberSteveon/windows-privacy-setup</a>
+</section>
+
+<section>
+
+    <h2 class="divider-line">Professional Portfolio Website</h2>
+
+    <p>
+        This website serves as both my professional portfolio and an ongoing web
+        development project. It provides a central location to showcase my
+        professional experience, technical projects, and continued growth as a
+        software engineer while giving me the opportunity to practice front-end
+        web development using fundamental web technologies.
+    </p>
+
+    <h3>Why I Built It</h3>
+
+    <p>
+        Rather than relying solely on a résumé or GitHub profile, I wanted a
+        place that better represented who I am as a developer. Building my own
+        website allowed me to combine my professional experience, software
+        projects, and career journey into a single location while strengthening
+        my HTML, CSS, and JavaScript skills.
+    </p>
+
+    <h3>Highlights</h3>
+
+    <ul>
+        <li>Built with semantic HTML, CSS, and JavaScript</li>
+        <li>Professional résumé and project showcase</li>
+        <li>Designed for ongoing maintenance and expansion</li>
+        <li>Hosted as a personal portfolio website</li>
+    </ul>
+
+    <h3>What I Learned</h3>
+
+    <p>
+        Developing this website reinforced the importance of writing clean,
+        semantic HTML, organizing CSS for maintainability, and designing pages
+        with both usability and accessibility in mind. As I continue learning
+        new technologies, this portfolio will evolve alongside my skills and
+        serve as a living record of my professional growth.
+    </p>
+
+    <p>
+    This portfolio isn't intended to be a finished product. As I continue
+    learning software engineering, adding projects, and gaining professional
+    experience, it will continue to grow alongside my career.
+    </p>
+
+    <p>
+        <strong>Live Website:</strong> cybersteveon.dev
+        <br>
+        <strong>GitHub:</strong> Repository Link
+    </p>
+
+</section>
+
+</main>
+
+<footer>
+
+    <p>© 2026 Steven Wager</p>
+
+    <p>
+        Built with HTML, CSS, and JavaScript.
+        Hosted on Cloudflare Pages.
+    </p>
+
+</footer>
+
+<script type="module" src="javascript/main.js"></script>
+</body>
