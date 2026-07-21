@@ -1,140 +1,163 @@
-/* =========================================================
-   VARIABLES
-   Define reusable values once here. Change a color in this
-   one spot and it updates everywhere it's used below.
-   ========================================================= */
 :root {
     --color-navy: #1b2a4a;
-    --color-beige: #f0e6d2;
+    --color-beige: #f8f6f2;
     --color-text: #222;
-    --color-border-light: #cccccc;
-    --color-nav-bg: #f4f4f4;
+    --color-border-light: #d6d6d6;
+    --color-nav-bg: #ffffff;
     --color-white: #ffffff;
+    --color-link: #2d5bd1;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --border-radius: 6px;
 }
 
-/* =========================================================
-   RESET
-   Start every element at a predictable baseline before
-   adding intentional spacing/behavior further down.
-   ========================================================= */
 * {
     box-sizing: border-box;
-}
-
-h1, h2, h3 {
-    margin: 0;
-}
-
-/* =========================================================
-   BASE TYPOGRAPHY
-   Default look of plain text elements, site-wide.
-   ========================================================= */
-
-main {
-    flex: 1;
 }
 
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-family: Calibri, Arial, sans-serif;
+    margin: 20px auto;
+    max-width: 1100px;
+    padding: 0 20px;
+    font-family: "Segoe UI", Calibri, Arial, sans-serif;
+    line-height: 1.6;
     color: var(--color-text);
     background-color: var(--color-beige);
-    margin: 20px;
 }
 
-p {
-    margin: 0 0 15px 0;
+main {
+    flex: 1;
 }
 
-h2, h3 {
+h1,
+h2,
+h3 {
+    margin: 0;
     color: var(--color-navy);
 }
 
-h2 {
-    margin-top: 25px;
+h1 {
     margin-bottom: 12px;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 14px;
+}
+
+h3 {
+    margin-bottom: 8px;
 }
 
 h3 em {
     font-weight: normal;
 }
 
-hr {
-    border: none;
-    border-top: 3px solid var(--color-navy);
+p {
+    margin: 0 0 16px;
 }
 
 ul {
-    list-style-type: disc;
+    margin: 0 0 16px;
+    padding-left: 24px;
 }
 
-/* =========================================================
-   PAGE LAYOUT REGIONS
-   header, nav, footer — the site-wide "frame" around content.
-   ========================================================= */
+li {
+    margin-bottom: 6px;
+}
+
+a {
+    color: var(--color-link);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    border-top: 3px solid var(--color-navy);
+    margin: 20px 0;
+}
+
 header {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px 0;
+    padding: 12px 20px;
     background-color: var(--color-nav-bg);
-    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
 }
 
 footer {
-    margin-top: 30px;
+    margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid var(--color-border-light);
+    text-align: center;
+    font-size: 0.95rem;
 }
 
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
 .nav-list {
     display: flex;
     gap: 20px;
-    list-style: none;
     margin: 0;
     padding: 0;
-
-
-}
-
-.nav-list a.active {
-    border-bottom: 3px solid #1b2a4a;
-    padding-bottom: 4px;
+    list-style: none;
 }
 
 .nav-list a {
     color: var(--color-navy);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    transition: 0.2s ease;
 }
 
 .nav-list a:hover {
-    text-decoration: underline;
+    color: var(--color-link);
 }
 
-/* =========================================================
-   TABLE
-   ========================================================= */
+.nav-list a.active {
+    color: var(--color-white);
+    background-color: var(--color-navy);
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+#theme-toggle {
+    padding: 8px 14px;
+    border: 1px solid var(--color-navy);
+    border-radius: 4px;
+    background-color: var(--color-white);
+    color: var(--color-navy);
+    cursor: pointer;
+    font: inherit;
+    transition: 0.2s ease;
+}
+
+#theme-toggle:hover {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+}
+
 table {
-    border-collapse: collapse;
     width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
 }
 
-th, td {
-    border: 1px solid var(--color-border-light);
-    padding: 8px 10px;
+th,
+td {
+    padding: 10px 12px;
     text-align: left;
+    border: 1px solid var(--color-border-light);
 }
 
 th {
@@ -142,13 +165,10 @@ th {
     color: var(--color-white);
 }
 
-/* =========================================================
-   MEDIA
-   Images, and the stacked audio/photo layout on Career Goals.
-   ========================================================= */
 img {
     max-width: 300px;
     height: auto;
+    border-radius: var(--border-radius);
 }
 
 .media-block {
@@ -158,10 +178,18 @@ img {
     gap: 12px;
 }
 
-/* =========================================================
-   CONTENT COMPONENTS
-   Reusable patterns used across sections/articles.
-   ========================================================= */
+section {
+    margin-bottom: 32px;
+}
+
+article {
+    margin-bottom: 24px;
+}
+
+article > p {
+    margin-bottom: 10px;
+}
+
 .divider-line {
     border-bottom: 1px solid var(--color-border-light);
     padding-bottom: 8px;
@@ -172,15 +200,7 @@ img {
 }
 
 section > p {
-    margin-bottom: 8px;
-}
-
-article {
-    margin-bottom: 20px;
-}
-
-article > p {
-    margin-bottom: 6px;
+    margin-bottom: 10px;
 }
 
 .company-heading,
@@ -188,6 +208,8 @@ article > p {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .company-heading {
@@ -195,30 +217,62 @@ article > p {
 }
 
 .job-heading {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .job-date,
 .job-location {
     font-style: italic;
+    color: #666;
 }
 
-/* =========================================================
-   UTILITY
-   ========================================================= */
 #current-date {
     text-align: center;
 }
 
-/* Javascripts */
 .dark-mode {
     background-color: #1f1f1f;
     color: #f5f5f5;
 }
 
-.nav-list a.active {
-    color: white;
-    background-color: #1b2a4a;
-    padding: 6px 12px;
-    border-radius: 4px;
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3 {
+    color: #ffffff;
+}
+
+.dark-mode nav {
+    background-color: #2b2b2b;
+}
+
+.dark-mode footer {
+    border-top-color: #555;
+}
+
+.dark-mode .divider-line {
+    border-bottom-color: #555;
+}
+
+.dark-mode table,
+.dark-mode th,
+.dark-mode td {
+    border-color: #555;
+}
+
+.dark-mode td {
+    background-color: #2a2a2a;
+}
+
+.dark-mode a {
+    color: #8cbcff;
+}
+
+.dark-mode #theme-toggle {
+    background-color: #3a3a3a;
+    color: #ffffff;
+    border-color: #666;
+}
+
+.dark-mode #theme-toggle:hover {
+    background-color: #4b4b4b;
 }
