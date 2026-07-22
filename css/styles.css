@@ -1,13 +1,30 @@
 :root {
-    --color-navy: #1b2a4a;
-    --color-beige: #f8f6f2;
-    --color-text: #222;
-    --color-border-light: #d6d6d6;
-    --color-nav-bg: #ffffff;
+    --color-background: #F5E6C8;
+    --color-surface: #FFFFFF;
+    --color-primary: #9A3412;
+    --color-secondary: #52796F;
+    --color-accent: #B8860B;
+    --color-link: #9A3412;
+    --color-text: #1C1917;
+    --color-muted: #57534E;
+    --color-border: #D6D3D1;
     --color-white: #ffffff;
-    --color-link: #2d5bd1;
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     --border-radius: 6px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode {
+    --color-background: #111827;
+    --color-surface: #1F2937;
+    --color-primary: #C2410C;
+    --color-secondary: #84A98C;
+    --color-accent: #D4A017;
+    --color-link: #D97706;
+    --color-text: #F5E6C8;
+    --color-muted: #94A3B8;
+    --color-border: #374151;
+    --color-white: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
 * {
@@ -24,7 +41,7 @@ body {
     font-family: "Segoe UI", Calibri, Arial, sans-serif;
     line-height: 1.6;
     color: var(--color-text);
-    background-color: var(--color-beige);
+    background-color: var(--color-background);
 }
 
 main {
@@ -35,7 +52,7 @@ h1,
 h2,
 h3 {
     margin: 0;
-    color: var(--color-navy);
+    color: var(--color-primary);
 }
 
 h1 {
@@ -78,7 +95,7 @@ a:hover {
 
 hr {
     border: none;
-    border-top: 3px solid var(--color-navy);
+    border-top: 3px solid var(--color-primary);
     margin: 20px 0;
 }
 
@@ -92,7 +109,7 @@ nav {
     align-items: center;
     margin: 20px 0;
     padding: 12px 20px;
-    background-color: var(--color-nav-bg);
+    background-color: var(--color-surface);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
 }
@@ -100,7 +117,7 @@ nav {
 footer {
     margin-top: 40px;
     padding-top: 20px;
-    border-top: 1px solid var(--color-border-light);
+    border-top: 1px solid var(--color-border);
     text-align: center;
     font-size: 0.95rem;
 }
@@ -114,36 +131,36 @@ footer {
 }
 
 .nav-list a {
-    color: var(--color-navy);
+    color: var(--color-accent);
     text-decoration: none;
     font-weight: 600;
     transition: 0.2s ease;
 }
 
 .nav-list a:hover {
-    color: var(--color-link);
+    color: var(--color-primary);
 }
 
 .nav-list a.active {
     color: var(--color-white);
-    background-color: var(--color-navy);
+    background-color: var(--color-primary);
     padding: 6px 12px;
     border-radius: 4px;
 }
 
 #theme-toggle {
     padding: 8px 14px;
-    border: 1px solid var(--color-navy);
+    border: 1px solid var(--color-border);
     border-radius: 4px;
-    background-color: var(--color-white);
-    color: var(--color-navy);
+    background-color: var(--color-surface);
+    color: var(--color-text);
     cursor: pointer;
     font: inherit;
     transition: 0.2s ease;
 }
 
 #theme-toggle:hover {
-    background-color: var(--color-navy);
+    background-color: var(--color-primary);
     color: var(--color-white);
 }
 
@@ -157,12 +174,16 @@ th,
 td {
     padding: 10px 12px;
     text-align: left;
-    border: 1px solid var(--color-border-light);
+    border: 1px solid var(--color-border);
 }
 
 th {
-    background-color: var(--color-navy);
+    background-color: var(--color-primary);
     color: var(--color-white);
+}
+
+td {
+    background-color: var(--color-surface);
 }
 
 img {
@@ -191,7 +212,7 @@ article > p {
 }
 
 .divider-line {
-    border-bottom: 1px solid var(--color-border-light);
+    border-bottom: 1px solid var(--color-border);
     padding-bottom: 8px;
 }
 
@@ -223,56 +244,9 @@ section > p {
 .job-date,
 .job-location {
     font-style: italic;
-    color: #666;
+    color: var(--color-muted);
 }
 
 #current-date {
     text-align: center;
-}
-
-.dark-mode {
-    background-color: #1f1f1f;
-    color: #f5f5f5;
-}
-
-.dark-mode h1,
-.dark-mode h2,
-.dark-mode h3 {
-    color: #ffffff;
-}
-
-.dark-mode nav {
-    background-color: #2b2b2b;
-}
-
-.dark-mode footer {
-    border-top-color: #555;
-}
-
-.dark-mode .divider-line {
-    border-bottom-color: #555;
-}
-
-.dark-mode table,
-.dark-mode th,
-.dark-mode td {
-    border-color: #555;
-}
-
-.dark-mode td {
-    background-color: #2a2a2a;
-}
-
-.dark-mode a {
-    color: #8cbcff;
-}
-
-.dark-mode #theme-toggle {
-    background-color: #3a3a3a;
-    color: #ffffff;
-    border-color: #666;
-}
-
-.dark-mode #theme-toggle:hover {
-    background-color: #4b4b4b;
 }
