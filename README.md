@@ -32,16 +32,22 @@ https://cybersteveon.dev
 ## Repository Structure
 
 ```text
-css/
-files/
-javascript/
-multimedia/
-
-index.html
-about.html
-resume.html
-projects.html
-contact.html
+cybersteveon-portfolio/
+│
+├── css/
+├── js/
+├── images/
+│   └── favicon/
+├── files/
+│
+├── index.html
+├── about.html
+├── resume.html
+├── projects.html
+├── contact.html
+│
+├── README.md
+└── .gitignore
 ```
 
 ## Future Improvements
