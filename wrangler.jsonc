@@ -21,6 +21,9 @@
     "TURNSTILE_SITE_KEY": "0x4AAAAAAFvp9bpe7CWkFp5-",
     "CONTACT_DRY_RUN": "false"
   },
+  "secrets": {
+    "required": ["RESEND_API_KEY", "TURNSTILE_SECRET_KEY"]
+  },
   "ratelimits": [
     {
       "name": "CONTACT_RATE_LIMITER",
