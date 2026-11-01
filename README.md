@@ -164,6 +164,9 @@ permissions, production secrets, custom-domain routing, or email deliverability.
 
 ### Security and limits
 
+- `secrets.required` declares production secret names (never values), allowing
+  Wrangler to reject deployments that lack the required secrets. This guard
+  must be committed and included in the Git build to protect automatic deployments.
 - Only same-origin JSON POSTs are accepted; no permissive CORS. Origin checking
   blocks ordinary cross-site browser submission, but is not authentication—bots
   can forge it. Turnstile is independently verified server-side.
