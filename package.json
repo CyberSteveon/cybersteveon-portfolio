@@ -1,0 +1,17 @@
+{
+  "name": "cybersteveon-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "npm run build && wrangler dev --env local --port 8787",
+    "test": "node --test",
+    "check:deploy": "npm run build && wrangler deploy --dry-run --env \"\" --outdir .wrangler/dry-run"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "wrangler": "4.156.0"
+  }
+}
