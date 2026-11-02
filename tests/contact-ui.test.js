@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { initializeContact } from "../js/contact.js";
+import { initializeContact } from "../src/scripts/contact.js";
 
 test("form blocks duplicate submits, retains fields on errors, and resets on acceptance", async () => {
     const saved = Object.fromEntries(["document", "window", "fetch", "FormData"].map(key => [key, globalThis[key]]));

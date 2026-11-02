@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+<BaseLayout title="Contact | Steven Wager" description="Connect with Steven Wager about software engineering, cloud infrastructure, automation, and project opportunities.">
+  <PageIntro label="CONTACT" title="Let’s build a connection." description="A project idea, a technical conversation, or an opportunity to work together. I’d be happy to hear from you." />
+  <section class="wrap contact-layout section compact-top"><div><p class="eyebrow">OPEN TO CONVERSATION</p><h2>Good work starts<br />with a conversation.</h2><p>I’m interested in software engineering, cloud infrastructure, automation, and practical technology problems. Use the form or reach out directly.</p><a class="contact-email" href="mailto:contact@cybersteveon.dev">contact@cybersteveon.dev ↗</a><div class="social-links"><a href="https://github.com/CyberSteveon">GitHub ↗</a><a href="https://www.linkedin.com/in/cybersteveon">LinkedIn ↗</a></div><div class="contact-note"><span class="mono">WHAT HAPPENS NEXT</span><p>Your message is delivered to my professional inbox. I’ll reply to the email address you provide as soon as I can.</p><p class="small muted">Please avoid including passwords or sensitive information. This form uses Cloudflare Turnstile for spam protection.</p></div></div><ContactForm /></section>
+</BaseLayout>
