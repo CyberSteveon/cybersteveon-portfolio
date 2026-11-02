@@ -1,0 +1,24 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectVisual from '../../components/ProjectVisual.astro';
+export async function getStaticPaths() {
+    const projects = await getCollection('projects');
+    const slugs = new Set<string>();
+    return projects.map(project => {
+        if (slugs.has(project.data.slug)) throw new Error(`Duplicate project slug: ${project.data.slug}`);
+        slugs.add(project.data.slug);
+        return { params: { slug: project.data.slug }, props: { project } };
+    });
+}
+interface Props { project: CollectionEntry<'projects'>; }
+const { project } = Astro.props;
+const { Content } = await render(project);
+const p = project.data;
+---
+<BaseLayout title={`${p.title} | Steven Wager Projects`} description={p.description}>
+  <header class="page-intro wrap"><a class="back-link mono" href="/projects">← PROJECT INDEX</a><p class="eyebrow">{p.category}</p><h1>{p.title}</h1><p class="lede">{p.description}</p><div class="actions">{p.repository && <a class="button primary" href={p.repository}>View source ↗</a>}{p.demo && <a class="button secondary" href={p.demo}>Live website ↗</a>}</div></header>
+  <div class="wrap case-layout"><aside class="case-sidebar"><ProjectVisual kind={p.visual} /><div class="case-facts"><p class="eyebrow">STATUS</p><p class="status">{p.status}</p><p class="eyebrow">TOOLKIT</p><ul class="tags">{p.technologies.map(tech => <li>{tech}</li>)}</ul></div></aside><article class="prose case-content"><Content />{p.architecture && <figure><img src={p.architecture.src} alt={p.architecture.alt} loading="lazy" /><figcaption>{p.architecture.alt}</figcaption></figure>}</article></div>
+  <div class="wrap closing-note"><a class="text-link" href="/projects">← Back to all projects</a><a class="text-link" href="/contact">Let’s talk about the work ↗</a></div>
+</BaseLayout>

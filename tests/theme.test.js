@@ -1,25 +1,75 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { initializeTheme } from "../js/theme.js";
+import { initializeTheme } from "../src/scripts/theme.js";
 
-test("theme toggles and updates accessibility state when storage is blocked", () => {
+for (const blocked of [false, true])
+  test(`theme follows system until selected; storage blocked=${blocked}`, () => {
+    const saved = Object.fromEntries(
+      ["document", "window", "localStorage"].map((key) => [
+        key,
+        Object.getOwnPropertyDescriptor(globalThis, key),
+      ]),
+    );
     const classes = new Set();
-    let click;
     const attributes = {};
-    const button = { textContent: "", setAttribute: (key, value) => { attributes[key] = value; }, addEventListener: (_, listener) => { click = listener; } };
-    const previous = { document: globalThis.document, localStorage: Object.getOwnPropertyDescriptor(globalThis, "localStorage") };
+    const label = {};
+    let click, change, stored;
+    const button = {
+      setAttribute: (key, value) => (attributes[key] = value),
+      addEventListener: (_, callback) => (click = callback),
+    };
+    const root = {
+      style: {},
+      classList: {
+        contains: (key) => classes.has(key),
+        toggle: (key, enabled) =>
+          enabled ? classes.add(key) : classes.delete(key),
+      },
+    };
     try {
-        globalThis.document = { getElementById: () => button, body: { classList: { add: (name) => classes.add(name), contains: (name) => classes.has(name), toggle: (name) => { if (classes.has(name)) { classes.delete(name); return false; } classes.add(name); return true; } } } };
-        Object.defineProperty(globalThis, "localStorage", { configurable: true, value: { getItem() { throw new Error("blocked"); }, setItem() { throw new Error("blocked"); } } });
-        initializeTheme();
-        click();
-        assert.equal(button.textContent, "Light Mode");
-        assert.equal(attributes["aria-pressed"], "true");
-        click();
-        assert.equal(button.textContent, "Dark Mode");
+      globalThis.document = {
+        documentElement: root,
+        getElementById: (id) => (id === "theme-label" ? label : button),
+      };
+      globalThis.window = {
+        matchMedia: () => ({
+          matches: true,
+          addEventListener: (_, callback) => (change = callback),
+        }),
+      };
+      Object.defineProperty(globalThis, "localStorage", {
+        configurable: true,
+        value: {
+          getItem() {
+            if (blocked) throw Error("blocked");
+            return null;
+          },
+          setItem(_, value) {
+            if (blocked) throw Error("blocked");
+            stored = value;
+          },
+        },
+      });
+      initializeTheme();
+      assert.equal(root.style.colorScheme, "dark");
+      change({ matches: false });
+      assert.equal(label.textContent, "Dark mode");
+      click();
+      assert.equal(attributes["aria-pressed"], "true");
+      assert.equal(label.textContent, "Light mode");
+      change({ matches: false });
+      assert.equal(
+        root.style.colorScheme,
+        "dark",
+        "explicit choice wins over system",
+      );
+      if (!blocked) assert.equal(stored, "dark");
+      click();
+      assert.equal(root.style.colorScheme, "light");
     } finally {
-        globalThis.document = previous.document;
-        if (previous.localStorage) Object.defineProperty(globalThis, "localStorage", previous.localStorage);
-        else delete globalThis.localStorage;
+      for (const [key, descriptor] of Object.entries(saved)) {
+        if (descriptor) Object.defineProperty(globalThis, key, descriptor);
+        else delete globalThis[key];
+      }
     }
-});
+  });

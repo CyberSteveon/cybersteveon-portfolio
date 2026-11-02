@@ -1,0 +1,5 @@
+---
+interface Props { label: string; title: string; description: string; }
+const { label, title, description } = Astro.props;
+---
+<header class="page-intro wrap"><p class="eyebrow">STEVEN WAGER / {label}</p><h1>{title}</h1><p class="lede">{description}</p><slot /></header>
