@@ -15,7 +15,7 @@ const projects = defineCollection({
     demo: z.url().optional(),
     featured: z.boolean().default(false),
     order: z.number(),
-    visual: z.enum(["database", "network", "terminal", "code"]),
+    visual: z.enum(["database", "network", "terminal", "code", "infrastructure", "finance"]),
     image: z.object({ src: z.string(), alt: z.string().min(1) }).optional(),
     architecture: z
       .object({ src: z.string(), alt: z.string().min(1) })

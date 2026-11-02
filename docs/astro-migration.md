@@ -98,3 +98,13 @@ The original root HTML/CSS/JS and copy build script were retired only after thes
 Review the design and personal content locally, confirm a Node 24 build environment in Cloudflare, then separately authorize push/PR/merge/deployment. Existing Git-triggered deployment settings need review before pushing. Production credentials, DNS, and mailbox configuration were not inspected or changed in this migration. No new real email delivery test was performed.
 
 Future work: provide Atlas implementation examples and a repository URL when ready; add approved PAD/Copilot examples; refresh the résumé PDF; add case-study screenshots as real project interfaces become available. No React integration is needed until a feature warrants it.
+
+## Résumé and project content follow-up
+
+The owner replaced the résumé PDF after the migration. The website now reflects the contractor-to-permanent Amcor transition and October 2024 promotion, with the title IT Service Desk Analyst. The replacement PDF itself was not edited; its summary's promotion-duration claim still needs owner review.
+
+Leakline is presented as an owner-confirmed working prototype developed using Antigravity, with React project exposure and ongoing GUI/refinement work. Local source inspection confirmed the interface-to-Tauri scan commands and results flow; no execution or security certification of Leakline is claimed.
+
+Two new case studies describe the locally inspected Ansible lab and FastAPI finance foundation. Neither local project has a configured Git remote, so repository links are omitted. The finance project remains at the local-foundation stage. Featured projects are Leakline, Infrastructure Automation Lab, and Forge Terminal. The site now builds 13 pages.
+
+The build removes Finder `.DS_Store` metadata from generated output after Astro copies public assets; the existing asset-boundary check caught this during the PDF replacement workflow. No Worker, secrets, DNS, or email-provider changes were made.

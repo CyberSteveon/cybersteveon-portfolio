@@ -18,8 +18,8 @@ const files = await walk("dist");
 const pages = files.filter((file) => file.endsWith(".html"));
 assert.equal(
   pages.length,
-  11,
-  "Five original pages, five case studies, and 404",
+  13,
+  "Five original pages, seven case studies, and 404",
 );
 for (const name of ["index", "about", "projects", "resume", "contact", "404"])
   assert.ok(files.includes(`dist/${name}.html`));

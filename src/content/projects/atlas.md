@@ -5,8 +5,8 @@ description: "A personal PostgreSQL project exploring relational modeling, SQL, 
 technologies: [PostgreSQL, SQL, Docker]
 status: Active Development
 category: Databases / infrastructure
-featured: true
-order: 1
+featured: false
+order: 4
 visual: database
 ---
 ## A foundation in data
@@ -25,4 +25,4 @@ Understanding how data is organized is an important part of my software engineer
 
 ## Current status
 
-Atlas is actively being developed. A public repository, detailed schema walkthrough, and implementation examples are not yet included in this portfolio. This is a learning project, not a claim of production database experience.
+Atlas is actively being developed. A public repository, detailed schema walkthrough, and implementation examples are not yet included in this portfolio. The focus remains hands-on database learning.

@@ -1,10 +1,12 @@
 ---
-interface Props { kind: 'database' | 'network' | 'terminal' | 'code'; }
+interface Props { kind: 'database' | 'network' | 'terminal' | 'code' | 'infrastructure' | 'finance'; }
 const { kind } = Astro.props;
 ---
-<div class:list={['project-visual', kind]} aria-hidden="true">
+<div class:list={['project-visual', kind === 'infrastructure' ? 'network' : kind]} aria-hidden="true">
   {kind === 'database' && <div class="data-sketch"><div class="db-cylinder"><span>ATLAS</span><small>PostgreSQL</small></div><div class="diagram-line"></div><div class="data-labels"><span>MODEL</span><span>QUERY</span><span>ITERATE</span></div></div>}
   {kind === 'network' && <div class="network-sketch"><span class="node">ASTRO<br /><small>static frontend</small></span><span class="connector">→</span><span class="node orange">WORKER<br /><small>contact API</small></span><span class="network-caption">BROWSER → VALIDATE → DELIVER</span></div>}
+  {kind === 'infrastructure' && <div class="network-sketch"><span class="node">ANSIBLE<br /><small>playbook + template</small></span><span class="connector">→</span><span class="node orange">DOCKER<br /><small>Ubuntu + Nginx</small></span><span class="network-caption">CONFIGURE → RENDER → SERVE</span></div>}
   {kind === 'terminal' && <div class="terminal-sketch"><div class="window-dots"><i></i><i></i><i></i><span>PowerShell</span></div><p><b>PS &gt;</b> Windows setup</p><p class="terminal-muted">// repeatable configuration</p><p><span>01</span> Setup <span>02</span> Privacy</p><span class="terminal-cursor"></span></div>}
-  {kind === 'code' && <div class="code-sketch"><span>{'{'}<br />&nbsp; learn,<br />&nbsp; build,<br />&nbsp; iterate<br />{'}'}</span><span class="code-cross">+</span></div>}
+  {kind === 'finance' && <div class="finance-sketch"><span class="finance-label">PERSONAL FINANCE / API FOUNDATION</span><div class="finance-api">FastAPI <small>Python backend</small></div><div class="finance-branches"><span>Pydantic<small>Settings</small></span><span>Credential provider<small>Apple Keychain</small></span></div></div>}
+  {kind === 'code'  && <div class="code-sketch"><span>{'{'}<br />&nbsp; learn,<br />&nbsp; build,<br />&nbsp; iterate<br />{'}'}</span><span class="code-cross">+</span></div>}
 </div>

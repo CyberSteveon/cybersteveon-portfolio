@@ -6,8 +6,8 @@ technologies: [PowerShell, Windows, Automation]
 status: Active Development
 category: Automation / tooling
 repository: https://github.com/CyberSteveon/windows-privacy-setup
-featured: true
-order: 3
+featured: false
+order: 5
 visual: terminal
 ---
 ## From repetition to a script
@@ -27,4 +27,4 @@ The project strengthened my PowerShell scripting skills and changed how I approa
 
 ## Current status
 
-The tool is an ongoing personal project. Its existing functionality provides a starting point for further improvements; it is not presented as an enterprise provisioning product or a quantified performance improvement.
+The tool is an ongoing personal project. Its existing functionality provides a starting point for further improvements to my personal setup workflow.

@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "astro build",
+    "build": "astro build && node scripts/clean-build.mjs",
     "dev": "npm run build && wrangler dev --env local --port 8787",
     "test": "node --test",
     "check:deploy": "npm run build && wrangler deploy --dry-run --env \"\" --outdir .wrangler/dry-run",

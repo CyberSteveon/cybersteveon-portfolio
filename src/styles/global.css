@@ -1687,3 +1687,32 @@ th {
     color: black;
   }
 }
+
+/* Card illustrations are a single link, not individually underlined labels. */
+.project-image-link,
+.project-image-link:hover {
+  text-decoration: none;
+}
+.project-image {
+  display: block;
+  height: 200px;
+  object-fit: contain;
+  background: #0d0d13;
+}
+.case-project-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.project-visual.finance {
+  background: #202c3d;
+  color: #f5e6c8;
+}
+.finance-sketch { width: 90%; max-width: 350px; text-align: center; }
+.finance-label { display: block; font-size: .5rem; letter-spacing: .06em; color: #b1bdc9; margin-bottom: 13px; }
+.finance-api { border: 1px solid #a0c6a3; padding: 10px; width: 60%; margin: auto; font-size: .9rem; }
+.finance-sketch small { display: block; font-size: .55rem; color: #b1bdc9; margin-top: 4px; }
+.finance-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; font-size: .62rem; }
+.finance-branches > span { position: relative; border: 1px solid #708096; padding: 9px 4px; }
+.finance-branches > span::before { content: ''; position: absolute; height: 20px; border-left: 1px solid #a0c6a3; bottom: 100%; left: 50%; }
+@media (max-width: 580px) { .project-image { height: 210px; } }

@@ -1,27 +1,36 @@
 ---
 title: Leakline
 slug: leakline
-description: "A local-first Rust and Tauri desktop project, building a filesystem scanning foundation for future configuration analysis."
-technologies: [Rust, Tauri]
+description: "A working desktop scanner prototype built with Rust, Tauri, and React to investigate exposed secrets and configuration risks in local files."
+technologies: [Rust, Tauri, React, JavaScript]
 status: Active Development
 category: Software / security
 repository: https://github.com/CyberSteveon/leakline
-featured: false
-order: 4
+featured: true
+order: 1
 visual: code
+image:
+  src: /images/projects/leakline.png
+  alt: Leakline desktop interface showing scanner dependencies, scan controls, and two medium-severity findings.
 ---
-## Local-first exploration
+## A working desktop prototype
 
-Leakline is a desktop application being developed to identify system configuration and security issues. The long-term goal is lightweight analysis without relying on cloud services.
+Leakline brings local file scanning into a desktop application. The core scanning workflow is functional; the interface and tool still need refinement.
 
-## Current implementation
+## How it fits together
 
-The desktop application launches, while the graphical interface is still under development. A functional recursive filesystem traversal engine provides the foundation for future analysis features. The project uses a modular Rust scanning engine and Tauri application structure.
+The React interface connects to a Rust backend through Tauri commands. Users can select a directory, start or cancel a scan, follow progress, and review findings. The backend separates target validation, file discovery, native rules, scan management, and adapters for Gitleaks and Semgrep.
 
-## Development approach
+The native scanner provides pattern matching within the application. Gitleaks and Semgrep integrations use external tools; they are separate from the native engine.
 
-Parts of the engine were separated into a command-line prototype, Config Checker RS, to allow iteration on directory traversal and rule validation before desktop integration.
+## Building with agents
 
-## Next steps
+I developed the working model using Antigravity’s agentic software development workflow. Exploring that style of development was an enjoyable part of the project, and it gave me hands-on exposure to a Rust, Tauri, and React application.
 
-Expand the rule engine, add configuration validation and security analysis, and connect the scanning engine to the graphical interface. These are planned capabilities, not completed features.
+## Current focus
+
+- Improve the GUI and make results easier to navigate.
+- Refine the scanning behavior and overall workflow.
+- Continue testing and evaluating the tool as it develops.
+
+The project is a working prototype in active development, with more work ahead before a polished release.

@@ -22,14 +22,14 @@ src/content/projects/         Validated Markdown project collection
 src/content.config.ts         Collection schema
 src/scripts/                  Native theme and contact modules
 src/styles/global.css         Design tokens, layouts, responsive and print styles
-public/                       Public-only favicon, social card, original résumé PDF
+public/                       Public-only favicon, social card, résumé PDF
 worker/index.js               Existing contact API
 wrangler.jsonc                Existing Workers static-assets configuration
 scripts/                      Built-site and local HTTP checks
 tests/                       Mocked API, form, and theme regression tests
 ```
 
-Never place secrets or private documents in `public/`: Astro copies it into the public output. `.dev.vars*` and `.env*` remain ignored. The public Turnstile site key and local test keys are not credentials.
+Never place secrets or private documents in `public/`: Astro copies it into the public output. The build removes macOS `.DS_Store` metadata from generated output. `.dev.vars*` and `.env*` remain ignored. The public Turnstile site key and local test keys are not credentials.
 
 ## Development
 
@@ -47,7 +47,7 @@ Open `http://localhost:8787` using exactly `localhost`, as the API enforces the 
 The `local` environment uses public Turnstile test keys and dry-run mode. Siteverify requires internet access; **Resend is never called locally**. No production secrets are needed. Wrangler's warning that production `secrets` are not inherited by `local` is expected; local uses its own public test configuration.
 
 ```sh
-npm run build           # Generate 11 static pages
+npm run build           # Generate 13 static pages
 npm run check:site      # Check built routes, links, anchors, metadata, and asset boundaries
 npm run test:local      # With dev running: HTTP/API checks; deliberately reaches rate limit
 npm run check:deploy    # Build + Wrangler packaging dry-run; does not deploy
@@ -85,7 +85,7 @@ visual: code
 Describe only work that exists, and clearly label future plans.
 ```
 
-Status is `Completed`, `Active Development`, or `Planned`. `visual` is `database`, `network`, `terminal`, or `code`; it supplies a decorative illustration when no image is provided. Repository, demo, image, and architecture are optional. Slugs must be unique lowercase words separated by hyphens. Body content renders as Markdown in the shared case-study layout. Put public images under `public/images/` and use absolute site paths.
+Status is `Completed`, `Active Development`, or `Planned`. `visual` is `database`, `network`, `terminal`, `code`, `infrastructure`, or `finance`; it supplies a decorative illustration when no image is provided. Repository, demo, image, and architecture are optional. Slugs must be unique lowercase words separated by hyphens. Body content renders as Markdown in the shared case-study layout. Put public images under `public/images/` and use absolute site paths.
 
 ## Production rollout — requires approval
 
@@ -113,5 +113,5 @@ See [contact API, security, and configuration](docs/contact-api.md) and [migrati
 - Atlas's repository link, schema examples, screenshots, and concrete milestones were not supplied; no details were invented.
 - Professional PAD/Copilot work is described generally. Add only approved, nonconfidential examples.
 - Employment dates are preserved. Old promotion-duration wording conflicted with those dates and was removed from the web résumé.
-- The original résumé PDF is preserved byte-for-byte and may need a separate content refresh.
-- AWS certification preparation, orchestration/homelab learning, and upcoming React coursework are not presented as completed credentials or professional specialization.
+- The owner supplied an updated résumé PDF. Its summary still needs promotion-duration review; the web résumé uses the explicit employment dates.
+- AWS certification preparation, orchestration/homelab learning, and Java coursework are not presented as completed credentials or professional specialization.

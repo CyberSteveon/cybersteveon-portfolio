@@ -7,7 +7,7 @@ status: Active Development
 category: Software / learning
 repository: https://github.com/CyberSteveon/100-Days-of-Python
 featured: false
-order: 5
+order: 7
 visual: code
 ---
 ## Learning through practice
