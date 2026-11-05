@@ -18,6 +18,17 @@ for (const path of ['/about', '/projects', '/resume', '/contact', '/projects/atl
     assert.equal(legacy.status, 307);
     assert.equal(legacy.headers.get('location'), path);
 }
+const homepage = await (await fetch(base)).text();
+assert.ok(homepage.includes('rel="canonical" href="https://cybersteveon.dev/"'));
+const sitemap = await fetch(`${base}/sitemap.xml`);
+assert.equal(sitemap.status, 200);
+assert.ok(sitemap.headers.get('content-type').includes('xml'));
+assert.ok((await sitemap.text()).includes('<loc>https://cybersteveon.dev/</loc>'));
+const robots = await fetch(`${base}/robots.txt`);
+assert.equal(robots.status, 200);
+assert.ok((await robots.text()).includes('Sitemap: https://cybersteveon.dev/sitemap.xml'));
+const errorPage = await (await fetch(`${base}/404`)).text();
+assert.ok(errorPage.includes('name="robots" content="noindex, follow"'));
 assert.equal((await fetch(`${base}/api/contact`)).status, 405);
 const headers = { Origin: base, "Content-Type": "application/json" };
 const post = (body, extra = {}) => fetch(`${base}/api/contact`, { method: "POST", headers: { ...headers, ...extra }, body });
