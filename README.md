@@ -115,3 +115,15 @@ See [contact API, security, and configuration](docs/contact-api.md) and [migrati
 - Employment dates are preserved. Old promotion-duration wording conflicted with those dates and was removed from the web résumé.
 - The owner supplied an updated résumé PDF. Its summary still needs promotion-duration review; the web résumé uses the explicit employment dates.
 - AWS certification preparation, orchestration/homelab learning, and Java coursework are not presented as completed credentials or professional specialization.
+
+## Search discovery and HTTPS
+
+Astro generates `/sitemap.xml` from the main routes and project collection, and `/robots.txt` advertises it. Only the 12 content pages appear in the sitemap; the error template uses `noindex`. Homepage canonical and Open Graph URLs use the apex `/`, and the build checks verify exact canonical URLs and complete sitemap coverage.
+
+HTTPS redirection belongs at Cloudflare's edge, because static asset requests normally bypass the Worker. For the domain, use **SSL/TLS → Edge Certificates → Always Use HTTPS**. Verify the existing edge certificate is active and SSL/TLS is not Off. This setting needs no email DNS changes and does not affect HTTP localhost development. `_redirects` does not support scheme-based domain rules, so it is not used for this setting.
+
+After enabling it, check both `http://cybersteveon.dev/` and `http://cybersteveon.dev/projects/leakline?source=check` redirect to their HTTPS equivalents with paths and query strings preserved, and HTTPS ends at 200 without a loop. HTTPS redirection addresses transport; it is not a complete security audit. Do not change HSTS, DNS, or other security settings as part of this toggle.
+
+After an approved deployment, verify the live sitemap and robots response, including any Cloudflare-managed additions. In Google Search Console, verify a property for the site, submit `https://cybersteveon.dev/sitemap.xml`, and inspect the homepage and key projects. Search Console requires owner access; sitemap publication does not guarantee indexing or rankings.
+
+Recommended public GitHub profile fields: name `Steven Wager`, website `https://cybersteveon.dev`, and bio `Enterprise IT professional and software engineering student building projects in software, cloud infrastructure, and automation.` The current CLI login cannot edit these fields without additional account scope; set them manually under GitHub profile settings.
