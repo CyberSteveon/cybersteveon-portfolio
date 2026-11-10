@@ -57,6 +57,26 @@ Wait one minute after `test:local` before testing the form again. Unit tests moc
 
 ## Routes and theme
 
+### Editing readable templates
+
+Edit the `.astro` source files in `src/pages`, `src/components`, and `src/layouts`.
+These contain the site's HTML templates, with two-space indentation and wrapped
+attributes and expressions. Every build also formats the generated HTML in
+`dist/` for inspection, including nested project pages. Edit the source templates
+rather than `dist/`, since a build replaces generated files. Bundled CSS and
+JavaScript remain optimized. Output formatting preserves whitespace-sensitive
+inline content and adds some uncompressed file size in exchange for readability.
+
+```sh
+npm run format         # Format all Astro templates
+npm run format:check   # Check formatting without modifying files
+```
+
+Formatting uses Prettier with the official `prettier-plugin-astro` plugin and the
+repository's `.prettierrc.json`. Editors with Prettier integration can use this
+same configuration. The commands target Astro templates; generated output,
+dependencies, and local secret files are excluded.
+
 `/`, `/about`, `/projects`, `/resume`, and `/contact` are preserved. Astro uses file-format output (`about.html`, etc.); Workers provides clean-path handling and redirects old `.html` URLs. Five project detail pages live under `/projects/<slug>`. `404.html` supplies the missing-page view.
 
 The theme uses the system preference unless the visitor chooses a mode. The preference persists when storage is available; blocked storage does not break the toggle. An early head script applies the theme before rendering, and navigation works without JavaScript. Styles include visible focus, a skip link, reduced motion, wrapping mobile navigation, and print styling.

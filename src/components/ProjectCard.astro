@@ -1,18 +1,60 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import ProjectVisual from './ProjectVisual.astro';
-interface Props { project: CollectionEntry<'projects'>; }
+import type { CollectionEntry } from "astro:content";
+import ProjectVisual from "./ProjectVisual.astro";
+interface Props {
+  project: CollectionEntry<"projects">;
+}
 const { project } = Astro.props;
 const p = project.data;
 ---
+
 <article class="project-card">
-  <a class="project-image-link" href={`/projects/${p.slug}`} aria-label={`Read ${p.title} project details`}>
-    {p.image ? <img class="project-image" src={p.image.src} alt={p.image.alt} loading="lazy" width="640" height="360" /> : <ProjectVisual kind={p.visual} />}
+  <a
+    class="project-image-link"
+    href={`/projects/${p.slug}`}
+    aria-label={`Read ${p.title} project details`}
+  >
+    {p.image ? (
+      <img
+        class="project-image"
+        src={p.image.src}
+        alt={p.image.alt}
+        loading="lazy"
+        width="640"
+        height="360"
+      />
+    ) : (
+      <ProjectVisual kind={p.visual} />
+    )}
   </a>
-  <div class="project-body"><div class="project-meta"><span>{p.category}</span><span class="status"><i aria-hidden="true"></i>{p.status}</span></div>
-    <h3><a href={`/projects/${p.slug}`}>{p.title}<span aria-hidden="true">↗</span></a></h3>
+  <div class="project-body">
+    <div class="project-meta">
+      <span>{p.category}</span>
+      <span class="status">
+        <i aria-hidden="true"></i>
+        {p.status}
+      </span>
+    </div>
+    <h3>
+      <a href={`/projects/${p.slug}`}>
+        {p.title}
+        <span aria-hidden="true">↗</span>
+      </a>
+    </h3>
     <p>{p.description}</p>
-    <ul class="tags" aria-label="Technologies">{p.technologies.map(tech => <li>{tech}</li>)}</ul>
-    <div class="project-links"><a href={`/projects/${p.slug}`}>Read project notes →</a>{p.repository && <a href={p.repository} aria-label={`${p.title} source on GitHub`}>Source ↗</a>}{p.demo && <a href={p.demo}>Live site ↗</a>}</div>
+    <ul class="tags" aria-label="Technologies">
+      {p.technologies.map((tech) => (
+        <li>{tech}</li>
+      ))}
+    </ul>
+    <div class="project-links">
+      <a href={`/projects/${p.slug}`}>Read project notes →</a>
+      {p.repository && (
+        <a href={p.repository} aria-label={`${p.title} source on GitHub`}>
+          Source ↗
+        </a>
+      )}
+      {p.demo && <a href={p.demo}>Live site ↗</a>}
+    </div>
   </div>
 </article>
