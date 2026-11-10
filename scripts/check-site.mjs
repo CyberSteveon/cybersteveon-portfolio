@@ -34,7 +34,8 @@ for (const file of files) {
   );
 }
 for (const file of pages) {
-  const html = await readFile(file, "utf8");
+  // Attribute wrapping in readable output must not change metadata checks.
+  const html = (await readFile(file, "utf8")).replace(/\s+/g, " ");
   assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, `${file}: one h1`);
   for (const marker of [
     'name="description"',

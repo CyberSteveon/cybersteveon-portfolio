@@ -1,5 +1,24 @@
 ---
-interface Props { number: string; label: string; title: string; href?: string; linkText?: string; }
+interface Props {
+  number: string;
+  label: string;
+  title: string;
+  href?: string;
+  linkText?: string;
+}
 const { number, label, title, href, linkText } = Astro.props;
 ---
-<div class="section-heading"><div><p class="eyebrow"><span>{number}</span> / {label}</p><h2>{title}</h2></div>{href && <a class="text-link" href={href}>{linkText} <span aria-hidden="true">↗</span></a>}</div>
+
+<div class="section-heading">
+  <div>
+    <p class="eyebrow">
+      <span>{number}</span> / {label}
+    </p>
+    <h2>{title}</h2>
+  </div>
+  {href && (
+    <a class="text-link" href={href}>
+      {linkText} <span aria-hidden="true">↗</span>
+    </a>
+  )}
+</div>

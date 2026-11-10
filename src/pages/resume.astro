@@ -1,9 +1,42 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageIntro from '../components/PageIntro.astro';
-import ResumeContent from '../components/ResumeContent.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageIntro from "../components/PageIntro.astro";
+import ResumeContent from "../components/ResumeContent.astro";
 ---
-<BaseLayout title="Professional Résumé | Steven Wager" description="Steven Wager's enterprise IT experience, software engineering education, automation practice, technical projects, and downloadable résumé.">
-  <PageIntro label="PROFESSIONAL RÉSUMÉ" title="Experience that connects." description="Enterprise IT practice, a manufacturing foundation, and an ongoing education in software engineering."><div class="actions"><a class="button primary" href="/files/Steven-Wager-Resume.pdf" download>Download résumé PDF ↓</a><a class="button secondary" href="/contact">Get in touch ↗</a></div></PageIntro>
-  <div class="wrap resume-layout"><aside class="resume-nav" aria-label="Résumé introduction"><p class="eyebrow">STEVEN WAGER</p><p>IT Support Specialist II<br />Software Engineering Student</p><p class="small muted">Download the résumé PDF for a portable overview, or explore the experience and project details below.</p></aside><div class="prose resume-content"><ResumeContent /></div></div>
+
+<BaseLayout
+  title="Professional Résumé | Steven Wager"
+  description="Steven Wager's enterprise IT experience, software engineering education, automation practice, technical projects, and downloadable résumé."
+>
+  <PageIntro
+    label="PROFESSIONAL RÉSUMÉ"
+    title="Experience that connects."
+    description="Enterprise IT practice, a manufacturing foundation, and an ongoing education in software engineering."
+  >
+    <div class="actions">
+      <a class="button primary" href="/files/Steven-Wager-Resume.pdf" download>
+        Download résumé PDF ↓
+      </a>
+      <a class="button secondary" href="/contact">
+        Get in touch ↗
+      </a>
+    </div>
+  </PageIntro>
+  <div class="wrap resume-layout">
+    <aside class="resume-nav" aria-label="Résumé introduction">
+      <p class="eyebrow">STEVEN WAGER</p>
+      <p>
+        IT Support Specialist II
+        <br />
+        Software Engineering Student
+      </p>
+      <p class="small muted">
+        Download the résumé PDF for a portable overview, or explore the experience and project
+        details below.
+      </p>
+    </aside>
+    <div class="prose resume-content">
+      <ResumeContent />
+    </div>
+  </div>
 </BaseLayout>

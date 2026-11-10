@@ -1,9 +1,37 @@
 ---
 const groups = [
-  { title: 'Software & web', type: 'BUILDING + STUDYING', text: 'Rust, Tauri, and React through the AI-assisted Leakline project; Python, FastAPI, and Pydantic through a personal finance API foundation. Java through coursework, and JavaScript, HTML, CSS, and Astro through this portfolio.' },
-  { title: 'Cloud & infrastructure', type: 'HANDS-ON + EXPLORING', text: 'Cloudflare Workers, DNS, and serverless APIs in this portfolio. Ansible, Docker, Nginx, and Jinja2 in a local infrastructure lab. AWS certification preparation and broader infrastructure study remain ongoing.' },
-  { title: 'Data & development tools', type: 'PROJECT WORK', text: 'PostgreSQL and SQL through Atlas. Git, GitHub, VS Code, and JetBrains IDEs for development. REST APIs and container-based local environments.' },
-  { title: 'Automation & enterprise', type: 'PROFESSIONAL PRACTICE', text: 'Power Automate Desktop, Microsoft Copilot agents, PowerShell, Microsoft 365, Active Directory, and Microsoft Entra ID. Practical tools for operational problems.' }
+  {
+    title: "Software & web",
+    type: "BUILDING + STUDYING",
+    text: "Rust, Tauri, and React through the AI-assisted Leakline project; Python, FastAPI, and Pydantic through a personal finance API foundation. Java through coursework, and JavaScript, HTML, CSS, and Astro through this portfolio.",
+  },
+  {
+    title: "Cloud & infrastructure",
+    type: "HANDS-ON + EXPLORING",
+    text: "Cloudflare Workers, DNS, and serverless APIs in this portfolio. Ansible, Docker, Nginx, and Jinja2 in a local infrastructure lab. AWS certification preparation and broader infrastructure study remain ongoing.",
+  },
+  {
+    title: "Data & development tools",
+    type: "PROJECT WORK",
+    text: "PostgreSQL and SQL through Atlas. Git, GitHub, VS Code, and JetBrains IDEs for development. REST APIs and container-based local environments.",
+  },
+  {
+    title: "Automation & enterprise",
+    type: "PROFESSIONAL PRACTICE",
+    text: "Power Automate Desktop, Microsoft Copilot agents, PowerShell, Microsoft 365, Active Directory, and Microsoft Entra ID. Practical tools for operational problems.",
+  },
 ];
 ---
-<div class="toolkit-grid">{groups.map((group, i) => <article class="toolkit-item"><span class="toolkit-index mono">0{i + 1}</span><div><p class="eyebrow">{group.type}</p><h3>{group.title}</h3><p>{group.text}</p></div></article>)}</div>
+
+<div class="toolkit-grid">
+  {groups.map((group, i) => (
+    <article class="toolkit-item">
+      <span class="toolkit-index mono">0{i + 1}</span>
+      <div>
+        <p class="eyebrow">{group.type}</p>
+        <h3>{group.title}</h3>
+        <p>{group.text}</p>
+      </div>
+    </article>
+  ))}
+</div>

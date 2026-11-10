@@ -1,12 +1,40 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageIntro from '../components/PageIntro.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-const projects = (await getCollection('projects')).sort((a,b) => a.data.order - b.data.order);
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageIntro from "../components/PageIntro.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
 ---
-<BaseLayout title="Projects | Steven Wager" description="Explore Steven Wager's software, PostgreSQL, serverless web, and automation projects, with honest development status and technical notes.">
-  <PageIntro label="PROJECT INDEX" title="Built to learn. Made to work." description="A collection of applications, infrastructure experiments, and tools. Each project is a chance to put an idea into practice—and understand it a little better." />
-  <section class="wrap section compact-top" aria-label="Project collection"><div class="collection-heading mono"><span>PROJECT NOTES / {String(projects.length).padStart(2, '0')} ENTRIES</span><span>SOFTWARE · CLOUD · AUTOMATION</span></div><div class="project-grid">{projects.map(project => <ProjectCard project={project} />)}</div></section>
-  <section class="wrap closing-note"><p class="eyebrow">A NOTE ON PROGRESS</p><h2>Good work takes iteration.</h2><p>Development status is shown on every project. Planned capabilities are described as next steps, and learning projects are labeled as such.</p><a class="text-link" href="/contact">Have a question about a project? ↗</a></section>
+
+<BaseLayout
+  title="Projects | Steven Wager"
+  description="Explore Steven Wager's software, PostgreSQL, serverless web, and automation projects, with honest development status and technical notes."
+>
+  <PageIntro
+    label="PROJECT INDEX"
+    title="Built to learn. Made to work."
+    description="A collection of applications, infrastructure experiments, and tools. Each project is a chance to put an idea into practice—and understand it a little better."
+  />
+  <section class="wrap section compact-top" aria-label="Project collection">
+    <div class="collection-heading mono">
+      <span>PROJECT NOTES / {String(projects.length).padStart(2, "0")} ENTRIES</span>
+      <span>SOFTWARE · CLOUD · AUTOMATION</span>
+    </div>
+    <div class="project-grid">
+      {projects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </section>
+  <section class="wrap closing-note">
+    <p class="eyebrow">A NOTE ON PROGRESS</p>
+    <h2>Good work takes iteration.</h2>
+    <p>
+      Development status is shown on every project. Planned capabilities are described as next
+      steps, and learning projects are labeled as such.
+    </p>
+    <a class="text-link" href="/contact">
+      Have a question about a project? ↗
+    </a>
+  </section>
 </BaseLayout>

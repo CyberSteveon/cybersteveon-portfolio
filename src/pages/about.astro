@@ -1,10 +1,94 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageIntro from '../components/PageIntro.astro';
-import Toolkit from '../components/Toolkit.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageIntro from "../components/PageIntro.astro";
+import Toolkit from "../components/Toolkit.astro";
 ---
-<BaseLayout title="About | Steven Wager" description="From manufacturing to enterprise IT and software engineering education: Steven Wager's background, current practice, and learning direction.">
-  <PageIntro label="ABOUT" title="Curiosity, put into practice." description="I’m Steven Wager—an enterprise IT professional, software engineering student, and someone who likes understanding how things work." />
-  <section class="wrap about-layout"><aside class="profile-note"><span class="profile-initials" aria-hidden="true">SW<span>↗</span></span><h2>Steven Wager</h2><p>IT Support Specialist II<br />Software Engineering Student</p><div class="profile-line"><span class="eyebrow">MY THROUGH LINE</span><p>Understand the problem.<br />Build something useful.<br />Keep improving.</p></div><a class="text-link" href="/resume">View professional résumé ↗</a></aside><div class="prose"><h2>From the shop floor to systems.</h2><p>My career began at Mercury Marine, where I spent seven years in manufacturing. As a Group Lead / Heat Treat Technician, I trained employees, worked with supervisors on production goals, and supported technical problem solving. A Lean Six Sigma Yellow Belt project gave me practical experience improving workstation ergonomics and reducing unnecessary movement.</p><p>In May 2023, I moved into enterprise IT through a TEKsystems assignment at Amcor. I became a permanent Amcor employee in June 2024 and was promoted to IT Support Specialist II that October. My work has included Microsoft 365, Active Directory, Microsoft Entra ID, endpoint administration, and technical operations. I now work as an IT Support Specialist II, supporting complex technical issues and collaborating with Information Security Operations.</p><h2>Building on that foundation.</h2><p>The work I enjoy most involves understanding a problem and making a process more reliable. I use Power Automate Desktop regularly and have created Microsoft Copilot agents at work. I also use PowerShell for practical automation. Those experiences connect my interests in software, infrastructure, and everyday operational improvements.</p><p>I’m pursuing a B.S. in Software Engineering at Western Governors University through the accelerated B.S. to M.S. pathway. Java is a primary programming interest, and I’m developing my skills through coursework and personal projects. I also have hands-on exposure to React through Leakline, a working Rust and Tauri desktop scanner developed with Antigravity’s agentic workflow. Its scanning workflow is functional, with interface improvements and refinement still ahead.</p><h2>What I’m exploring next.</h2><p>My projects include an Ansible infrastructure lab, the early backend foundation for a personal finance application, Atlas for PostgreSQL practice, and this Astro portfolio backed by a Cloudflare Worker. I’m also preparing for AWS certification and exploring infrastructure automation, homelab development, and container orchestration concepts.</p><p>My goal is to build a career in engineering-focused work while remaining grounded in the practical experience I already have. I value clear documentation, reliable systems, and learning through doing.</p></div></section>
-  <section class="wrap section"><div class="section-heading"><div><p class="eyebrow">THE CURRENT TOOLKIT</p><h2>Practice and possibility.</h2></div></div><Toolkit /></section>
+
+<BaseLayout
+  title="About | Steven Wager"
+  description="From manufacturing to enterprise IT and software engineering education: Steven Wager's background, current practice, and learning direction."
+>
+  <PageIntro
+    label="ABOUT"
+    title="Curiosity, put into practice."
+    description="I’m Steven Wager—an enterprise IT professional, software engineering student, and someone who likes understanding how things work."
+  />
+  <section class="wrap about-layout">
+    <aside class="profile-note">
+      <span class="profile-initials" aria-hidden="true">
+        SW<span>↗</span>
+      </span>
+      <h2>Steven Wager</h2>
+      <p>
+        IT Support Specialist II
+        <br />
+        Software Engineering Student
+      </p>
+      <div class="profile-line">
+        <span class="eyebrow">MY THROUGH LINE</span>
+        <p>
+          Understand the problem.
+          <br />
+          Build something useful.
+          <br />
+          Keep improving.
+        </p>
+      </div>
+      <a class="text-link" href="/resume">
+        View professional résumé ↗
+      </a>
+    </aside>
+    <div class="prose">
+      <h2>From the shop floor to systems.</h2>
+      <p>
+        My career began at Mercury Marine, where I spent seven years in manufacturing. As a Group
+        Lead / Heat Treat Technician, I trained employees, worked with supervisors on production
+        goals, and supported technical problem solving. A Lean Six Sigma Yellow Belt project gave me
+        practical experience improving workstation ergonomics and reducing unnecessary movement.
+      </p>
+      <p>
+        In May 2023, I moved into enterprise IT through a TEKsystems assignment at Amcor. I became a
+        permanent Amcor employee in June 2024 and was promoted to IT Support Specialist II that
+        October. My work has included Microsoft 365, Active Directory, Microsoft Entra ID, endpoint
+        administration, and technical operations. I now work as an IT Support Specialist II,
+        supporting complex technical issues and collaborating with Information Security Operations.
+      </p>
+      <h2>Building on that foundation.</h2>
+      <p>
+        The work I enjoy most involves understanding a problem and making a process more reliable. I
+        use Power Automate Desktop regularly and have created Microsoft Copilot agents at work. I
+        also use PowerShell for practical automation. Those experiences connect my interests in
+        software, infrastructure, and everyday operational improvements.
+      </p>
+      <p>
+        I’m pursuing a B.S. in Software Engineering at Western Governors University through the
+        accelerated B.S. to M.S. pathway. Java is a primary programming interest, and I’m developing
+        my skills through coursework and personal projects. I also have hands-on exposure to React
+        through Leakline, a working Rust and Tauri desktop scanner developed with Antigravity’s
+        agentic workflow. Its scanning workflow is functional, with interface improvements and
+        refinement still ahead.
+      </p>
+      <h2>What I’m exploring next.</h2>
+      <p>
+        My projects include an Ansible infrastructure lab, the early backend foundation for a
+        personal finance application, Atlas for PostgreSQL practice, and this Astro portfolio backed
+        by a Cloudflare Worker. I’m also preparing for AWS certification and exploring
+        infrastructure automation, homelab development, and container orchestration concepts.
+      </p>
+      <p>
+        My goal is to build a career in engineering-focused work while remaining grounded in the
+        practical experience I already have. I value clear documentation, reliable systems, and
+        learning through doing.
+      </p>
+    </div>
+  </section>
+  <section class="wrap section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">THE CURRENT TOOLKIT</p>
+        <h2>Practice and possibility.</h2>
+      </div>
+    </div>
+    <Toolkit />
+  </section>
 </BaseLayout>

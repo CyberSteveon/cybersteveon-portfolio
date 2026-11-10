@@ -1,9 +1,49 @@
 ---
-const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
-const links = [['/', 'Overview'], ['/projects', 'Projects'], ['/about', 'About'], ['/resume', 'Résumé'], ['/contact', 'Contact']];
+const path = Astro.url.pathname.replace(/\.html$/, "").replace(/\/$/, "") || "/";
+const links = [
+  ["/", "Overview"],
+  ["/projects", "Projects"],
+  ["/about", "About"],
+  ["/resume", "Résumé"],
+  ["/contact", "Contact"],
+];
 ---
+
 <header class="site-header">
-  <a class="wordmark" href="/" aria-label="Steven Wager home"><span class="brand-mark" aria-hidden="true">S<span>W</span></span><span>STEVEN WAGER<span class="brand-sub">ENGINEERING PORTFOLIO</span></span></a>
-  <nav aria-label="Main navigation"><ul class="nav-list">{links.map(([href, label]) => <li><a href={href} aria-current={(href === '/' ? path === '/' : path.startsWith(href)) ? 'page' : undefined}>{label}</a></li>)}</ul></nav>
-  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch color theme" aria-pressed="false"><span class="theme-symbol" aria-hidden="true">◐</span><span id="theme-label">Theme</span></button>
+  <a class="wordmark" href="/" aria-label="Steven Wager home">
+    <span class="brand-mark" aria-hidden="true">
+      S<span>W</span>
+    </span>
+    <span>
+      STEVEN WAGER<span class="brand-sub">ENGINEERING PORTFOLIO</span>
+    </span>
+  </a>
+  <nav aria-label="Main navigation">
+    <ul class="nav-list">
+      {links.map(([href, label]) => (
+        <li>
+          <a
+            href={href}
+            aria-current={
+              (href === "/" ? path === "/" : path.startsWith(href)) ? "page" : undefined
+            }
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+  <button
+    id="theme-toggle"
+    class="theme-toggle"
+    type="button"
+    aria-label="Switch color theme"
+    aria-pressed="false"
+  >
+    <span class="theme-symbol" aria-hidden="true">
+      ◐
+    </span>
+    <span id="theme-label">Theme</span>
+  </button>
 </header>
